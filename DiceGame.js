@@ -29,42 +29,35 @@ function rollDice(sides)	{
 }
 function runGame()	{
 	let driveway = create2DArray(8);
-	if (prompt("Would you like to play a game?") == "yes" || "Yes" || 1 || y)	{
-		for (let i = 0; i < driveway.length; i++)	{
-	
-			for (let j = 0; j < driveway.length; j++)	{
-				driveway[i][j] = "| * |";
-			}
+	for (let i = 0; i < driveway.length; i++)	{
+
+		for (let j = 0; j < driveway.length; j++)	{
+			driveway[i][j] = "snow";
 		}
-		driveway[0][0] = "| P |";
-		generateConsoleInterface(driveway);
-	}
-	else	{
-		console.log("Well fine then!");
 	}
 }
 function movePlayerUp (array,xAxis,yAxis) {
 	//TODO write a function that interprets user input as movement
-	array[xAxis][yAxis] = "|   |";
-	array[xAxis][yAxis-1] = "| P |";
+	// array[xAxis][yAxis] = "|   |";
+	// array[xAxis][yAxis-1] = "| P |";
 	return array;
 }
 function movePlayerDown (array,xAxis,yAxis) {
 	//TODO write a function that interprets user input as movement
-	array[xAxis][yAxis] = "|   |";
-	array[xAxis][yAxis+1] = "| P |";
+	// array[xAxis][yAxis] = "|   |";
+	// array[xAxis][yAxis+1] = "| P |";
 	return array;
 }
 function movePlayerLeft (array,xAxis,yAxis) {
 	//TODO write a function that interprets user input as movement
-	array[xAxis][yAxis] = "|   |";
-	array[xAxis-1][yAxis] = "| P |";
+	// array[xAxis][yAxis] = "|   |";
+	// array[xAxis-1][yAxis] = "| P |";
 	return array;
 }
 function movePlayerRight (array,xAxis,yAxis) {
 	//TODO write a function that interprets user input as movement
-	array[xAxis][yAxis] = "|   |";
-	array[xAxis+1][yAxis] = "| P |";
+	// array[xAxis][yAxis] = "|   |";
+	// array[xAxis+1][yAxis] = "| P |";
 	return array;
 }
 function snowFall (weather)	{
@@ -88,10 +81,11 @@ function create2DArray (rows)	{
 	}
 	return arr;
 }
-function generateConsoleInterface (array)		{
-	//TODO write a function that clears all snow, redraws the snow, and redraws the player
+// Replacing console interface with html interface
+// function generateConsoleInterface (array)		{
+// 	//TODO write a function that clears all snow, redraws the snow, and redraws the player
 
-		console.log(array.join('\n'));
+// 		console.log(array.join('\n'));
 
-}
+// }
 runGame();
