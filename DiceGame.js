@@ -28,16 +28,15 @@ function rollDice(sides)	{
 	return result;
 }
 function testFunction()	{
-	// let sides = prompt("Enter number of sides");
-	// console.log(rollDice(sides));
 	if (prompt("Would you like to play a game?") == "yes" || "Yes" || 1 || y)	{
-		let snow = create2DArray(8);
-		for (let i = 0; i < 8; i++)		{
-			snow[0][i] = "*";
+		let driveway = create2DArray(8);
+		for (let i = 0; i < driveway.length; i++)	{
+	
+			for (let j = 0; j < driveway.length; j++)	{
+				driveway[i][j] = "| * |";
+			}
 		}
-
-
-		generateConsoleInterface(snow);
+		generateConsoleInterface(driveway);
 	}
 	else	{
 		console.log("Well fine then!");
@@ -67,9 +66,9 @@ function create2DArray (rows)	{
 	}
 	return arr;
 }
-function generateConsoleInterface (snow)		{
+function generateConsoleInterface (array)		{
 	//TODO write a function that clears all snow, redraws the snow, and redraws the player
-	for (let i = 0; i < 8; i++)	{
-		console.log(snow[0][i]+snow[0][i+1]);
-	}
+
+		console.log(array.join('\n'));
+
 }
