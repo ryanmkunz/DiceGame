@@ -27,33 +27,41 @@ function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
 	return result;
 }
-function testFunction()	{
+function runGame()	{
+	let driveway = create2DArray(8);
 	if (prompt("Would you like to play a game?") == "yes" || "Yes" || 1 || y)	{
-		let driveway = create2DArray(8);
 		for (let i = 0; i < driveway.length; i++)	{
 	
 			for (let j = 0; j < driveway.length; j++)	{
 				driveway[i][j] = "| * |";
 			}
 		}
+		driveway[0][0] = "| P |";
 		generateConsoleInterface(driveway);
 	}
 	else	{
 		console.log("Well fine then!");
 	}
 }
-testFunction();
-
-function movePlayer () {
-	//TODO write a function that interprets user input as movement 
+function movePlayerUp (array,xAxis,yAxis) {
+	//TODO write a function that interprets user input as movement
+	array[xAxis][yAxis] = "|   |";
+	array[xAxis][yAxis-1] = "| P |";
+}
+function movePlayerDown (array,xAxis,yAxis) {
+	//TODO write a function that interprets user input as movement
+	array[xAxis][yAxis] = "|   |";
+	array[xAxis][yAxis+1] = "| P |";
 }
 function snowFall (weather)	{
 	//TODO write a function that makes snow appear after a certain number of moves
+	//Make sure player is not replaced with snow
 }
 function meltSnow (weather)	{
 	//TODO write a function that makes snow melt if it is sunny after a certain number of moves
+	//Make sure player is not melted
 }
-function dropSnow ()	{
+function dropSnow (xAxis,yAxis)	{
 	//TODO write a function that makes snow appear all around player when they slip
 }
 function endGame (condition)		{
@@ -72,3 +80,4 @@ function generateConsoleInterface (array)		{
 		console.log(array.join('\n'));
 
 }
+runGame();
