@@ -47,11 +47,25 @@ function movePlayerUp (array,xAxis,yAxis) {
 	//TODO write a function that interprets user input as movement
 	array[xAxis][yAxis] = "|   |";
 	array[xAxis][yAxis-1] = "| P |";
+	return array;
 }
 function movePlayerDown (array,xAxis,yAxis) {
 	//TODO write a function that interprets user input as movement
 	array[xAxis][yAxis] = "|   |";
 	array[xAxis][yAxis+1] = "| P |";
+	return array;
+}
+function movePlayerLeft (array,xAxis,yAxis) {
+	//TODO write a function that interprets user input as movement
+	array[xAxis][yAxis] = "|   |";
+	array[xAxis-1][yAxis] = "| P |";
+	return array;
+}
+function movePlayerRight (array,xAxis,yAxis) {
+	//TODO write a function that interprets user input as movement
+	array[xAxis][yAxis] = "|   |";
+	array[xAxis+1][yAxis] = "| P |";
+	return array;
 }
 function snowFall (weather)	{
 	//TODO write a function that makes snow appear after a certain number of moves
