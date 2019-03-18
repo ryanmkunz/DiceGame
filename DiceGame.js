@@ -10,14 +10,17 @@
 // make a chess-like board with a "shoveler" and "snow" covering the entire board
 // "shoveler" can move like the King in chess and removes snow by moving to a tile
 // no turns, can continuously move until snow is cleared or a shoveler throws out back
+// or shovel breaks
 // Every time you move (shovel) you have a chance of triggering an event
 //
-// 4-sided
-// 6-sided
-// 8-sided
-// 10-sided
-// 12-sided
-// 20-sided: "Ouch! you threw out your back -- Game Over"
+// 4-sided: Weather conditions - start of game - sunny: snow melts as you move, 
+// cloudy: nothing special, snowing: snow refills, blizzard: snow refills faster
+// snow will refill after a certain number of moves, less moves in blizzard
+// 6-sided: "Whoops! you slipped and fell" -- (re)fill all surrounding tiles with snow
+// 8-sided: "Oh no! your shovel broke" -- only after 3rd damage -- Game ends
+// 10-sided: "Oops! you damaged your shovel on some ice" -- probability increases after 12-roll
+// 12-sided: "Oops! you damaged your shovel on some ice" -- only use 12-side for first damage
+// 20-sided: "Ouch! you threw out your back" -- Game ends
 //
 //-----------------------------------------------
 function rollDice(sides)	{
