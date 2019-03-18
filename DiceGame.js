@@ -22,9 +22,6 @@
 // 12-sided: "Oops! you damaged your shovel on some ice" -- only use 12-side for first damage
 // 20-sided: "Ouch! you threw out your back" -- Game ends
 //
-// new idea: game will be one vertical column and slipping will move player backwards
-// another idea: player will not move, the driveway will move under them like treadmill
-//
 //-----------------------------------------------
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
@@ -34,7 +31,16 @@ function testFunction()	{
 	// let sides = prompt("Enter number of sides");
 	// console.log(rollDice(sides));
 	if (prompt("Would you like to play a game?") == "yes" || "Yes" || 1 || y)	{
-		console.log("test1");
+		let snow = create2DArray(8);
+		for (let i = 0; i < 8; i++)		{
+			snow[0][i] = "*";
+		}
+
+
+		generateConsoleInterface(snow);
+	}
+	else	{
+		console.log("Well fine then!");
 	}
 }
 testFunction();
@@ -54,6 +60,16 @@ function dropSnow ()	{
 function endGame (condition)		{
 	//TODO write a function that displays a "game over" message
 }
-function placeHolderName ()		{
+function create2DArray (rows)	{
+	let arr = [];
+	for (let i = 0; i < rows; i++)	{
+		arr [i] = [];
+	}
+	return arr;
+}
+function generateConsoleInterface (snow)		{
 	//TODO write a function that clears all snow, redraws the snow, and redraws the player
+	for (let i = 0; i < 8; i++)	{
+		console.log(snow[0][i]+snow[0][i+1]);
+	}
 }
