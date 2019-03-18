@@ -35,3 +35,22 @@ function testFunction()	{
 	}
 }
 testFunction();
+
+function movePlayer () {
+	//TODO write a function that interprets user input as movement 
+}
+function snowFall (weather)	{
+	//TODO write a function that makes snow appear after a certain number of moves
+}
+function meltSnow (weather)	{
+	//TODO write a function that makes snow melt if it is sunny after a certain number of moves
+}
+function dropSnow ()	{
+	//TODO write a function that makes snow appear all around player when they slip
+}
+function endGame (condition)		{
+	//TODO write a function that displays a "game over" message
+}
+function placeHolderName ()		{
+	//TODO write a function that clears all snow, redraws the snow, and redraws the player
+}
