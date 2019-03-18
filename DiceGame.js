@@ -22,6 +22,9 @@
 // 12-sided: "Oops! you damaged your shovel on some ice" -- only use 12-side for first damage
 // 20-sided: "Ouch! you threw out your back" -- Game ends
 //
+// new idea: game will be one vertical column and slipping will move player backwards
+// another idea: player will not move, the driveway will move under them like treadmill
+//
 //-----------------------------------------------
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
