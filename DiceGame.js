@@ -24,6 +24,11 @@
 //
 //-----------------------------------------------
 runGame();
+	
+changeImagePlayer(driveway[7][0]);
+let xAxis = 7;
+let yAxis = 0;
+
 function runGame()	{
 	let driveway = create2DArray(8);
 	for (let i = 0; i < driveway.length; i++)	{
@@ -97,14 +102,12 @@ function runGame()	{
 	driveway[7][6] = "SnowRow8Col7";
 	driveway[7][7] = "SnowRow8Col8";
 
-	changeImagePlayer(driveway[4][4]);
-	let xAxis = 4;
-	let yAxis = 4;
-	let newCoordinates = movePlayerUp(driveway,xAxis,yAxis);
-	xAxis = newCoordinates[0];
-	yAxis = newCoordinates[1];
-	console.log(xAxis);
-	console.log(yAxis);
+	// changeImagePlayer(driveway[7][0]);
+	// let xAxis = 7;
+	// let yAxis = 0;
+	// let newCoordinates = movePlayerUp(driveway,xAxis,yAxis);
+	// xAxis = newCoordinates[0];
+	// yAxis = newCoordinates[1];
 }
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
@@ -126,37 +129,25 @@ function changeImageAsphalt (elementId)	{
 		document.getElementById(elementId).src = "shoveler.jpg";
 	}
 }
-function movePlayerUp (driveway,xAxis,yAxis)    {
+function movePlayerUp ()    {
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis-1][yAxis]);
-	let newCoordinates = [];
-	newCoordinates[0] = xAxis-1;
-	newCoordinates[1] = yAxis;
-	return newCoordinates;
+	xAxis=-;
 }
 function movePlayerDown (driveway,xAxis,yAxis)  {
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis+1][yAxis]);
-	let newCoordinates = [];
-	newCoordinates[0] = xAxis+1;
-	newCoordinates[1] = yAxis;
-	return newCoordinates;
+	xAxis=+;
 }
 function movePlayerLeft (driveway,xAxis,yAxis)  {
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis][yAxis-1]);
-	let newCoordinates = [];
-	newCoordinates[0] = xAxis;
-	newCoordinates[1] = yAxis-1;
-	return newCoordinates;
+	yAxis=-;
 }
 function movePlayerRight (driveway,xAxis,yAxis) {
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis][yAxis+1]);
-	let newCoordinates = [];
-	newCoordinates[0] = xAxis;
-	newCoordinates[1] = yAxis+1;
-	return newCoordinates;
+	yAxis=+;
 }
 function snowFall (weather)	{
 	//TODO write a function that makes snow appear after a certain number of moves
