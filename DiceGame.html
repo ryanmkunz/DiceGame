@@ -96,10 +96,20 @@
 			<td colspan=8><img id="SnowRow8Col7" src="snowPileCropped.jpg" class="card-img-top" alt="..." style="width: 100px; height: 100px;"></td>
 			<td colspan=8><img id="SnowRow8Col8" src="snowPileCropped.jpg" class="card-img-top" alt="..." style="width: 100px; height: 100px;"></td>
 		</tr>
-		<button id="upBtn" onclick="movePlayerUp()" type="button" class="btn btn-primary">w</button>
-		<button id="leftBtn" onclick="movePlayerLeft()" type="button"  class="btn btn-primary">a</button>
-		<button id="downBtn" onclick="movePlayerDown()" type="button" class="btn btn-primary">s</button>
-		<button id="rightBtn" onclick="movePlayerRight()" type="button" class="btn btn-primary">d</button>
+		
+		<div class=container>
+			<div class=container style="height: 15px; width: 15px">
+			</div>
+			<button id="upBtn" onclick="movePlayerUp()" type="button" class="btn btn-primary container-top">w</button>
+			<div class=container style="height: 10px; width: 10px">
+			</div>
+		</div>
+		<div class=container>
+			<button id="leftBtn" onclick="movePlayerLeft()" type="button"  class="btn btn-primary">a</button>
+			<button id="downBtn" onclick="movePlayerDown()" type="button" class="btn btn-primary">s</button>
+			<button id="rightBtn" onclick="movePlayerRight()" type="button" class="btn btn-primary">d</button>
+		</div>
+
 	</body>
 		<script src="DiceGame.js" type="text/javascript">
 			
