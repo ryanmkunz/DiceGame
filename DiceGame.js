@@ -86,7 +86,7 @@ driveway[6][4] = "SnowRow7Col5";
 driveway[6][5] = "SnowRow7Col6";
 driveway[6][6] = "SnowRow7Col7";
 driveway[6][7] = "SnowRow7Col8";
-driveway[7][0] = "SnowRow8Col1";
+driveway[7][0] = "SnowRow8Col1"; //startGame
 driveway[7][1] = "SnowRow8Col2";
 driveway[7][2] = "SnowRow8Col3";
 driveway[7][3] = "SnowRow8Col4";
@@ -100,7 +100,7 @@ changeImagePlayer(driveway[7][0]);
 let xAxis = 7;
 let yAxis = 0;
 let shovelCondition = 2;
-let playerCondition = 10;
+let playerCondition = 5;
 
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
@@ -160,28 +160,17 @@ function snowFall (weather)	{
 	//Could use a dice roll here too
 }
 function meltSnow (weather)	{
-	//TODO write a function that makes snow melt if it is sunny after a certain number of moves
-	//Make sure player is not melted
-	//Could use a dice roll here too
+
 }
-// function dropSnow ()	{
-// 	// TODO write a function that makes snow appear all around player when they slip
-// 	// document.getElementById(toString(driveway[xAxis+1][yAxis+1])).src = "snowPileCropped.jpg";
-// 	changeImageSnow(driveway[xAxis+1][yAxis+1]);
-// 	changeImageSnow(driveway[xAxis-1][yAxis-1]);
-// 	changeImageSnow(driveway[xAxis-1][yAxis+1]);
-// 	changeImageSnow(driveway[xAxis+1][yAxis-1]);
-// 	changeImageSnow(driveway[xAxis+1][yAxis]);
-// 	changeImageSnow(driveway[xAxis-1][yAxis]);
-// 	changeImageSnow(driveway[xAxis][yAxis+1]);
-// 	changeImageSnow(driveway[xAxis][yAxis-1]);
-// 	changeImagePlayer(driveway[xAxis][yAxis]);
-// }
 function chanceCheck()	{
 	if (rollDice(6) == 6)	{
-		// dropSnow();
 		playerCondition--;
-		alert("Whoops! You slipped and fell")
+		if (playerCondition == 0)	{
+			endGame(2);
+		}
+		else	{
+			alert("Whoops! You slipped and fell");
+		}
 	}
 	else if (shovelCondition == 2)	{
 		if (rollDice(12) == 12)	{
@@ -201,7 +190,7 @@ function chanceCheck()	{
 		}
 	}
 	else if (rollDice(20) == 20)	{
-		endGame(2);
+		endGame(4);
 	}
 }
 function didIWin() {
@@ -210,19 +199,21 @@ function didIWin() {
 	}
 }
 function endGame (condition)	{
-	//TODO write a function that displays a "game over" message
-	//Switch case maybe?
 	switch (condition) {
 		case 1:
 			alert("Game Over: your shovel broke");
 			resetGame();
 			break;
 		case 2:
-			alert("Game Over: you broke your back");
+			alert("Game Over: you fell and broke an arm");
 			resetGame();
 			break;
 		case 3:
 			alert("You win!");
+			resetGame();
+			break;
+		case 4:
+			alert("Game Over: You had a heart attack");
 			resetGame();
 			break;
 		default:
@@ -248,7 +239,7 @@ function resetGame() {
 	xAxis = 7;
 	yAxis = 0;
 	shovelCondition = 2;
-	playerCondition = 10;
+	playerCondition = 5;
 	changeImagePlayer(driveway[7][0]);
 	changeImageOldLady(driveway[0][7]);
 }
