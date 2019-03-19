@@ -37,7 +37,7 @@ driveway[0][3] = "SnowRow1Col4";
 driveway[0][4] = "SnowRow1Col5";
 driveway[0][5] = "SnowRow1Col6";
 driveway[0][6] = "SnowRow1Col7";
-driveway[0][7] = "SnowRow1Col8";
+driveway[0][7] = "SnowRow1Col8"; //endGame
 driveway[1][0] = "SnowRow2Col1";
 driveway[1][1] = "SnowRow2Col2";
 driveway[1][2] = "SnowRow2Col3";
@@ -107,35 +107,24 @@ function rollDice(sides)	{
 	return result;
 }
 function changeImagePlayer (elementId)	{
-	if (document.getElementById(elementId).src = "snowPileCropped.jpg")	{
-		document.getElementById(elementId).src = "shoveler.jpg";
-	}
-	else {
-		document.getElementById(elementId).src = "snowPileCropped.jpg";
-	}
+	document.getElementById(elementId).src = "shoveler.jpg";
 }
 function changeImageAsphalt (elementId)	{
-	if (document.getElementById(elementId).src = "shoveler.jpg")	{
-		document.getElementById(elementId).src = "asphaltTexture.jpg";
-	}
-	else {
-		document.getElementById(elementId).src = "shoveler.jpg";
-	}
+	document.getElementById(elementId).src = "asphaltTexture.jpg";
 }
-// function changeImageSnow (elementId)	{
-// 		if (document.getElementById(elementId).src = "asphaltTexture.jpg")	{
-// 		document.getElementById(elementId).src = "snowPileCropped.jpg";
-// 	}
-// 	else {
-// 		document.getElementById(elementId).src = "asphaltTexture.jpg";
-// 	}
-// }
+function changeImageSnow (elementId)	{
+	document.getElementById(elementId).src = "snowPileCropped.jpg";
+}
+function changeImageOldLady (elementId)	{
+	document.getElementById(elementId).src = "oldLady.jpg";
+}
 function movePlayerUp ()    {
 	if (xAxis != 0)	{
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis-1][yAxis]);
 	chanceCheck();
 	xAxis--;
+	didIWin();
 	}
 }
 function movePlayerDown ()  {
@@ -144,6 +133,7 @@ function movePlayerDown ()  {
 	changeImagePlayer(driveway[xAxis+1][yAxis]);
 	chanceCheck();
 	xAxis++;
+	didIWin();
 	}
 }
 function movePlayerLeft ()  {
@@ -152,6 +142,7 @@ function movePlayerLeft ()  {
 	changeImagePlayer(driveway[xAxis][yAxis-1]);
 	chanceCheck();
 	yAxis--;
+	didIWin();
 	}
 }
 function movePlayerRight () {
@@ -160,6 +151,7 @@ function movePlayerRight () {
 	changeImagePlayer(driveway[xAxis][yAxis+1]);
 	chanceCheck();
 	yAxis++;
+	didIWin();
 	}
 }
 function snowFall (weather)	{
@@ -212,18 +204,30 @@ function chanceCheck()	{
 		endGame(2);
 	}
 }
+function didIWin() {
+	if (xAxis == 0 && yAxis == 7)	{
+		endGame(3);
+	}
+}
 function endGame (condition)	{
 	//TODO write a function that displays a "game over" message
 	//Switch case maybe?
 	switch (condition) {
 		case 1:
 			alert("Game Over: your shovel broke");
+			resetGame();
 			break;
 		case 2:
-			alert("Game Over: you threw out your back");
+			alert("Game Over: you broke your back");
+			resetGame();
+			break;
+		case 3:
+			alert("You win!");
+			resetGame();
 			break;
 		default:
 			alert("Game Over?");
+			resetGame();
 			break;
 	}
 }
@@ -234,5 +238,18 @@ function create2DArray (rows)	{
 	}
 	return arr;
 }
+function resetGame() {
+	for (let i = 0; i < driveway.length; i++)	{
 
+		for (let j = 0; j < driveway.length; j++)	{
+		changeImageSnow(driveway[i][j]);
+		}
+	}
+	xAxis = 7;
+	yAxis = 0;
+	shovelCondition = 2;
+	playerCondition = 10;
+	changeImagePlayer(driveway[7][0]);
+	changeImageOldLady(driveway[0][7]);
+}
 
