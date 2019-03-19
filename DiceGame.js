@@ -98,7 +98,13 @@ function runGame()	{
 	driveway[7][7] = "SnowRow8Col8";
 
 	changeImagePlayer(driveway[4][4]);
-	movePlayerUp(driveway,4,4);
+	let xAxis = 4;
+	let yAxis = 4;
+	let newCoordinates = movePlayerUp(driveway,xAxis,yAxis);
+	xAxis = newCoordinates[0];
+	yAxis = newCoordinates[1];
+	console.log(xAxis);
+	console.log(yAxis);
 }
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
@@ -120,29 +126,47 @@ function changeImageAsphalt (elementId)	{
 		document.getElementById(elementId).src = "shoveler.jpg";
 	}
 }
-function movePlayerUp (array,xAxis,yAxis) {
-	changeImageAsphalt(driveway[xAxis][yAxis]);
-	changeImagePlayer(driveway[xAxis][yAxis+1]);
-}
-function movePlayerDown (array,xAxis,yAxis) {
-	changeImageAsphalt(driveway[xAxis][yAxis]);
-	changeImagePlayer(driveway[xAxis][yAxis-1]);
-}
-function movePlayerLeft (array,xAxis,yAxis) {
-	changeImageAsphalt(driveway[xAxis][yAxis]);
-	changeImagePlayer(driveway[xAxis+1][yAxis]);
-}
-function movePlayerRight (array,xAxis,yAxis) {
+function movePlayerUp (driveway,xAxis,yAxis)    {
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis-1][yAxis]);
+	let newCoordinates = [];
+	newCoordinates[0] = xAxis-1;
+	newCoordinates[1] = yAxis;
+	return newCoordinates;
+}
+function movePlayerDown (driveway,xAxis,yAxis)  {
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis+1][yAxis]);
+	let newCoordinates = [];
+	newCoordinates[0] = xAxis+1;
+	newCoordinates[1] = yAxis;
+	return newCoordinates;
+}
+function movePlayerLeft (driveway,xAxis,yAxis)  {
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis][yAxis-1]);
+	let newCoordinates = [];
+	newCoordinates[0] = xAxis;
+	newCoordinates[1] = yAxis-1;
+	return newCoordinates;
+}
+function movePlayerRight (driveway,xAxis,yAxis) {
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis][yAxis+1]);
+	let newCoordinates = [];
+	newCoordinates[0] = xAxis;
+	newCoordinates[1] = yAxis+1;
+	return newCoordinates;
 }
 function snowFall (weather)	{
 	//TODO write a function that makes snow appear after a certain number of moves
 	//Make sure player is not replaced with snow
+	//Could use a dice roll here too
 }
 function meltSnow (weather)	{
 	//TODO write a function that makes snow melt if it is sunny after a certain number of moves
 	//Make sure player is not melted
+	//Could use a dice roll here too
 }
 function dropSnow (xAxis,yAxis)	{
 	//TODO write a function that makes snow appear all around player when they slip
