@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>
-			
-		</title>
+		<title></title>
 	</head>
 	  <!-- required meta tags? -->
       <meta charset="utf-8">
@@ -17,8 +15,6 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<body>
-	
-
 		<table style="width: 500px">
 		<tr>
 			<td colspan=8><img id="SnowRow1Col1" src="snowPileCropped.jpg" class="card-img-top" alt="..." style="width: 100px; height: 100px;"></td>
@@ -100,8 +96,12 @@
 			<td colspan=8><img id="SnowRow8Col7" src="snowPileCropped.jpg" class="card-img-top" alt="..." style="width: 100px; height: 100px;"></td>
 			<td colspan=8><img id="SnowRow8Col8" src="snowPileCropped.jpg" class="card-img-top" alt="..." style="width: 100px; height: 100px;"></td>
 		</tr>
+		<button id="upBtn" type="button" class="btn btn-primary">w</button>
+		<button type="button" class="btn btn-primary">a</button>
+		<button type="button" class="btn btn-primary">s</button>
+		<button type="button" class="btn btn-primary">d</button>
 	</body>
 		<script src="DiceGame.js" type="text/javascript">
-
+			document.getElementId("upBtn").addEventListener("click", function(){movePlayerUp(driveway)});
 		</script>
 </html>

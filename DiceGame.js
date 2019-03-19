@@ -29,7 +29,7 @@ function runGame()	{
 	for (let i = 0; i < driveway.length; i++)	{
 
 		for (let j = 0; j < driveway.length; j++)	{
-			driveway[i][j] = "snow";
+			driveway[i][j] = "";
 		}
 	}
 	driveway[0][0] = "SnowRow1Col1";
@@ -97,43 +97,44 @@ function runGame()	{
 	driveway[7][6] = "SnowRow8Col7";
 	driveway[7][7] = "SnowRow8Col8";
 
-	// changeImage(driveway[6][5]);
+	changeImagePlayer(driveway[4][4]);
+	movePlayerUp(driveway,4,4);
 }
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
 	return result;
 }
-function changeImage (elementId)	{
+function changeImagePlayer (elementId)	{
 	if (document.getElementById(elementId).src = "snowPileCropped.jpg")	{
-		document.getElementById(elementId).src = "asphaltTexture.jpg";
+		document.getElementById(elementId).src = "shoveler.jpg";
 	}
 	else {
 		document.getElementById(elementId).src = "snowPileCropped.jpg";
 	}
 }
+function changeImageAsphalt (elementId)	{
+	if (document.getElementById(elementId).src = "shoveler.jpg")	{
+		document.getElementById(elementId).src = "asphaltTexture.jpg";
+	}
+	else {
+		document.getElementById(elementId).src = "shoveler.jpg";
+	}
+}
 function movePlayerUp (array,xAxis,yAxis) {
-	//TODO write a function that interprets user input as movement
-	// array[xAxis][yAxis] = "|   |";
-	// array[xAxis][yAxis-1] = "| P |";
-	return array;
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis][yAxis+1]);
 }
 function movePlayerDown (array,xAxis,yAxis) {
-	//TODO write a function that interprets user input as movement
-	// array[xAxis][yAxis] = "|   |";
-	// array[xAxis][yAxis+1] = "| P |";
-	return array;
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis][yAxis-1]);
 }
 function movePlayerLeft (array,xAxis,yAxis) {
-	//TODO write a function that interprets user input as movement
-	// array[xAxis][yAxis] = "|   |";
-	// array[xAxis-1][yAxis] = "| P |";
-	return array;
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis+1][yAxis]);
 }
 function movePlayerRight (array,xAxis,yAxis) {
-	//TODO write a function that interprets user input as movement
-	// array[xAxis][yAxis] = "|   |";
-	// array[xAxis+1][yAxis] = "| P |";
-	return array;
+	changeImageAsphalt(driveway[xAxis][yAxis]);
+	changeImagePlayer(driveway[xAxis-1][yAxis]);
 }
 function snowFall (weather)	{
 	//TODO write a function that makes snow appear after a certain number of moves
