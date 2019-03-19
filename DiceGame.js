@@ -100,6 +100,7 @@ changeImagePlayer(driveway[7][0]);
 let xAxis = 7;
 let yAxis = 0;
 let shovelCondition = 2;
+let playerCondition = 10;
 
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
@@ -121,6 +122,14 @@ function changeImageAsphalt (elementId)	{
 		document.getElementById(elementId).src = "shoveler.jpg";
 	}
 }
+// function changeImageSnow (elementId)	{
+// 		if (document.getElementById(elementId).src = "asphaltTexture.jpg")	{
+// 		document.getElementById(elementId).src = "snowPileCropped.jpg";
+// 	}
+// 	else {
+// 		document.getElementById(elementId).src = "asphaltTexture.jpg";
+// 	}
+// }
 function movePlayerUp ()    {
 	if (xAxis != 0)	{
 	changeImageAsphalt(driveway[xAxis][yAxis]);
@@ -163,20 +172,23 @@ function meltSnow (weather)	{
 	//Make sure player is not melted
 	//Could use a dice roll here too
 }
-function dropSnow ()	{
-	// TODO write a function that makes snow appear all around player when they slip
-	// document.getElementById(toString(driveway[xAxis+1][yAxis+1])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis+1][yAxis])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis+1][yAxis-1])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis-1][yAxis+1])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis-1][yAxis])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis-1][yAxis-1])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis][yAxis+1])).src = "snowPileCropped.jpg";
-	// document.getElementById(toString(driveway[xAxis+1][yAxis])).src = "snowPileCropped.jpg";
-}
+// function dropSnow ()	{
+// 	// TODO write a function that makes snow appear all around player when they slip
+// 	// document.getElementById(toString(driveway[xAxis+1][yAxis+1])).src = "snowPileCropped.jpg";
+// 	changeImageSnow(driveway[xAxis+1][yAxis+1]);
+// 	changeImageSnow(driveway[xAxis-1][yAxis-1]);
+// 	changeImageSnow(driveway[xAxis-1][yAxis+1]);
+// 	changeImageSnow(driveway[xAxis+1][yAxis-1]);
+// 	changeImageSnow(driveway[xAxis+1][yAxis]);
+// 	changeImageSnow(driveway[xAxis-1][yAxis]);
+// 	changeImageSnow(driveway[xAxis][yAxis+1]);
+// 	changeImageSnow(driveway[xAxis][yAxis-1]);
+// 	changeImagePlayer(driveway[xAxis][yAxis]);
+// }
 function chanceCheck()	{
 	if (rollDice(6) == 6)	{
-		dropSnow();
+		// dropSnow();
+		playerCondition--;
 		alert("Whoops! You slipped and fell")
 	}
 	else if (shovelCondition == 2)	{
@@ -193,14 +205,27 @@ function chanceCheck()	{
 	}
 	else if (shovelCondition == 0)	{
 		if (rollDice(8) == 8)	{
-			alert("Game Over: your shovel broke");
 			endGame(1);
 		}
+	}
+	else if (rollDice(20) == 20)	{
+		endGame(2);
 	}
 }
 function endGame (condition)	{
 	//TODO write a function that displays a "game over" message
 	//Switch case maybe?
+	switch (condition) {
+		case 1:
+			alert("Game Over: your shovel broke");
+			break;
+		case 2:
+			alert("Game Over: you threw out your back");
+			break;
+		default:
+			alert("Game Over?");
+			break;
+	}
 }
 function create2DArray (rows)	{
 	let arr = [];
