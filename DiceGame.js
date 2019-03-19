@@ -23,6 +23,8 @@
 // 20-sided: "Ouch! you threw out your back" -- Game ends
 //
 //-----------------------------------------------
+console.log("this happened");
+changeImage();
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
 	return result;
@@ -34,6 +36,14 @@ function runGame()	{
 		for (let j = 0; j < driveway.length; j++)	{
 			driveway[i][j] = "snow";
 		}
+	}
+}
+function changeImage ()	{
+	if (document.getElementById("SnowRow1Col1").src = "snowPileCropped.jpg")	{
+		document.getElementById("SnowRow1Col1").src = "asphaltTexture.jpg";
+	}
+	else {
+		document.getElementById("SnowRow1Col1").src = "snowPileCropped.jpg";
 	}
 }
 function movePlayerUp (array,xAxis,yAxis) {
