@@ -74,7 +74,7 @@ function movePlayerUp ()    {
 	if (xAxis != 0)	{
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis-1][yAxis]);
-	chanceCheck();
+	// chanceCheck();
 	xAxis--;
 	didIWin();
 	meltSnow(weather);
@@ -84,7 +84,7 @@ function movePlayerDown ()  {
 	if (xAxis != 7)	{
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis+1][yAxis]);
-	chanceCheck();
+	// chanceCheck();
 	xAxis++;
 	didIWin();
 	meltSnow(weather);
@@ -94,7 +94,7 @@ function movePlayerLeft ()  {
 	if (yAxis != 0)	{
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis][yAxis-1]);
-	chanceCheck();
+	// chanceCheck();
 	yAxis--;
 	didIWin();
 	meltSnow(weather);
@@ -104,7 +104,7 @@ function movePlayerRight () {
 	if (yAxis != 7)	{
 	changeImageAsphalt(driveway[xAxis][yAxis]);
 	changeImagePlayer(driveway[xAxis][yAxis+1]);
-	chanceCheck();
+	// chanceCheck();
 	yAxis++;
 	didIWin();
 	meltSnow(weather);
@@ -164,29 +164,38 @@ function chanceCheck()	{
 function didIWin() {
 	if (xAxis == 0 && yAxis == 7)	{
 		endGame(3);
+		location.reload();
+	}
+	else	{
+		chanceCheck();
 	}
 }
 function endGame (condition)	{
 	switch (condition) {
 		case 1:
 			alert("Game Over: your shovel broke");
-			resetGame();
+			// resetGame();
+			location.reload();
 			break;
 		case 2:
 			alert("Game Over: you fell and broke your arm");
-			resetGame();
+			// resetGame();
+			location.reload();
 			break;
 		case 3:
 			alert("You win!");
-			resetGame();
+			// resetGame();
+			location.reload();
 			break;
 		case 4:
 			alert("Game Over: You threw out your back");
-			resetGame();
+			// resetGame();
+			location.reload();
 			break;
 		default:
 			alert("Game Over?");
-			resetGame();
+			// resetGame();
+			location.reload();
 			break;
 	}
 }
@@ -202,6 +211,7 @@ function resetGame() {
 
 		for (let j = 0; j < driveway.length; j++)	{
 		changeImageSnow(driveway[i][j]);
+		location.reload();
 		}
 	}
 	location.reload();
