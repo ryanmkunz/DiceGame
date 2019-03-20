@@ -6,12 +6,39 @@
 	color: white;
 	text-align: center;
 	background-color: blue;
-	position: relative;
-	width: 815px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 865px;
 	height: 25px;
 
 }
+.container-left	{
+	position: absolute;
+	background-color: blue;
+	left: 0;
+	top: 25px;
+	height: 815px;
+	width: 25px;
+}
+.container-middle	{
+	position: absolute;
+	top: 25px;
+	left: 25px;
+}
+.container-right	{
+	position: absolute;
+	background-color: blue;
+	left: 840px;
+	top: 25px;
+	height: 815px;
+	width: 25px;
+}
 .container-bottom	{
-	position: relative;
-	left: 175px;
+	position: absolute;
+	left: 375px;
+	top: 855px;
+}
+.container-outer	{
+
 }
