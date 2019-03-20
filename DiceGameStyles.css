@@ -20,11 +20,11 @@
 	height: 815px;
 	width: 25px;
 }
-.container-middle	{
+/*.container-middle	{
 	position: absolute;
 	top: 25px;
 	left: 25px;
-}
+}*/
 .container-right	{
 	position: absolute;
 	background-color: blue;
@@ -39,5 +39,13 @@
 	top: 855px;
 }
 .container-outer	{
-
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 866px;
+	width: 866px;
+	border: 25px;
+	border-color: blue;
+	margin: 10px;
+	border-style: solid;
 }

@@ -190,7 +190,7 @@ function endGame (condition)	{
 			resetGame();
 			break;
 		case 4:
-			alert("Game Over: You had a heart attack");
+			alert("Game Over: You broke your back");
 			resetGame();
 			break;
 		default:
