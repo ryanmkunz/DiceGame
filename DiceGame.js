@@ -104,6 +104,7 @@ let xAxis = 7;
 let yAxis = 0;
 let shovelCondition = 2;
 let playerCondition = 5;
+let weather = getWeather();
 
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
@@ -128,6 +129,7 @@ function movePlayerUp ()    {
 	chanceCheck();
 	xAxis--;
 	didIWin();
+	meltSnow(weather);
 	}
 }
 function movePlayerDown ()  {
@@ -137,6 +139,7 @@ function movePlayerDown ()  {
 	chanceCheck();
 	xAxis++;
 	didIWin();
+	meltSnow(weather);
 	}
 }
 function movePlayerLeft ()  {
@@ -146,6 +149,7 @@ function movePlayerLeft ()  {
 	chanceCheck();
 	yAxis--;
 	didIWin();
+	meltSnow(weather);
 	}
 }
 function movePlayerRight () {
@@ -155,18 +159,31 @@ function movePlayerRight () {
 	chanceCheck();
 	yAxis++;
 	didIWin();
+	meltSnow(weather);
 	}
 }
-function snowFall (weather)	{
-	//TODO write a function that makes snow appear after a certain number of moves
-	//Make sure player is not replaced with snow
-	//Could use a dice roll here too
+function getWeather ()	{
+	if (rollDice(4) == 4)	{
+		alert("It's sunny today");
+		return "sunny";
+	}
+	else {
+		return "";
+	}	
 }
 function meltSnow (weather)	{
-
+	if (weather == "sunny")	{
+		let randomXIndex = rollDice(7);
+		let randomYIndex = rollDice(7);
+		do {
+			randomXIndex = rollDice(7);
+			randomYIndex = rollDice(7);
+		}	while (randomXIndex == xAxis || randomYIndex == yAxis)
+		changeImageAsphalt(driveway[randomXIndex][randomYIndex]);
+	}
 }
 function chanceCheck()	{
-	if (rollDice(6) == 6)	{
+	if (rollDice(6) == 6 && weather !== "sunny")	{
 		playerCondition--;
 		if (playerCondition == 0)	{
 			endGame(2);
@@ -175,7 +192,7 @@ function chanceCheck()	{
 			alert("Whoops! You slipped and fell");
 		}
 	}
-	else if (shovelCondition == 2)	{
+	else if (shovelCondition == 2 && weather !== "sunny")	{
 		if (rollDice(12) == 12)	{
 			shovelCondition--;
 			alert("Whoops! You damaged your shovel on some ice");
