@@ -19,6 +19,10 @@
 // 12-sided: "Oops! you damaged your shovel on some ice" -- only use 12-side for first damage
 // 20-sided: "Ouch! you threw out your back" -- Game ends
 //
+// Yes, I realize I have my xAxis and yAxis backwards. 
+//
+// TODO: find a font online, figure out how to use arrow keys for input
+//
 //-----------------------------------------------
 let driveway = create2DArray(8);
 for (let i = 0; i < driveway.length; i++)	{
@@ -36,6 +40,28 @@ let yAxis = 0;
 let shovelCondition = 2;
 let playerCondition = 5;
 let weather = getWeather();
+
+document.onkeydown = checkKeyPress;
+
+function checkKeyPress(e)	{
+	e = e || window.event;
+	if (e.keyCode == "38")	{
+		// alert("the up arrow was pressed");
+		movePlayerUp();
+	}
+	else if (e.keyCode == "40")	{
+		// alert("the down arrow was pressed");
+		movePlayerDown();
+	}
+	else if (e.keyCode == "37")	{
+		// alert("the left arrow was pressed");
+		movePlayerLeft();
+	}
+	else if (e.keyCode == "39")	{
+		// alert("the right arrow was pressed");
+		movePlayerRight();
+	}
+}
 
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
