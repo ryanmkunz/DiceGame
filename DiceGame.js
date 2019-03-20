@@ -32,7 +32,6 @@ for (let i = 0; i < driveway.length; i++)	{
 		//driveway[i][j] = "SnowRow" + (i+1) + "Col" + (j+1);
 	}
 }
-
 // driveway[0][0] = "SnowRow1Col1";
 // driveway[0][1] = "SnowRow1Col2";
 // driveway[0][2] = "SnowRow1Col3";
@@ -262,5 +261,6 @@ function resetGame() {
 	playerCondition = 5;
 	changeImagePlayer(driveway[7][0]);
 	changeImageOldLady(driveway[0][7]);
+	weather = getWeather();
 }
 
