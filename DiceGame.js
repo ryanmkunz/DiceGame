@@ -32,31 +32,25 @@ for (let i = 0; i < driveway.length; i++)	{
 	}
 }
 changeImagePlayer(driveway[7][0]);
-
 let xAxis = 7;
 let yAxis = 0;
 let shovelCondition = 2;
 let playerCondition = 5;
 let weather = getWeather();
-
+alert("Use the arrow keys to move");
 document.onkeydown = checkKeyPress;
-
 function checkKeyPress(e)	{
 	e = e || window.event;
 	if (e.keyCode == "38")	{
-		// alert("the up arrow was pressed");
 		movePlayerUp();
 	}
 	else if (e.keyCode == "40")	{
-		// alert("the down arrow was pressed");
 		movePlayerDown();
 	}
 	else if (e.keyCode == "37")	{
-		// alert("the left arrow was pressed");
 		movePlayerLeft();
 	}
 	else if (e.keyCode == "39")	{
-		// alert("the right arrow was pressed");
 		movePlayerRight();
 	}
 }
@@ -179,7 +173,7 @@ function endGame (condition)	{
 			resetGame();
 			break;
 		case 2:
-			alert("Game Over: you fell and broke an arm");
+			alert("Game Over: you fell and broke your arm");
 			resetGame();
 			break;
 		case 3:
@@ -187,7 +181,7 @@ function endGame (condition)	{
 			resetGame();
 			break;
 		case 4:
-			alert("Game Over: You broke your back");
+			alert("Game Over: You threw out your back");
 			resetGame();
 			break;
 		default:
@@ -210,11 +204,5 @@ function resetGame() {
 		changeImageSnow(driveway[i][j]);
 		}
 	}
-	xAxis = 7;
-	yAxis = 0;
-	shovelCondition = 2;
-	playerCondition = 5;
-	changeImagePlayer(driveway[7][0]);
-	changeImageOldLady(driveway[0][7]);
-	weather = getWeather();
+	location.reload();
 }
