@@ -1,7 +1,4 @@
-.container-top	{
-	position: relative;
-	left: 36px;
-}
+
 .container-topMost	{
 	color: white;
 	text-align: center;
@@ -10,38 +7,15 @@
 	left: 0;
 	top: 0;
 	width: 866px;
-	height: 25px;
-}
-.container-left	{
-	position: absolute;
-	background-color: blue;
-	left: 0;
-	top: 25px;
-	height: 815px;
-	width: 25px;
-}
-/*.container-middle	{
-	position: absolute;
-	top: 25px;
-	left: 25px;
-}*/
-.container-right	{
-	position: absolute;
-	background-color: blue;
-	left: 841px;
-	top: 25px;
-	height: 815px;
-	width: 25px;
-}
-.container-bottom	{
-	position: absolute;
-	left: 375px;
-	top: 855px;
+	height: 50px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 35px;
 }
 .container-outer	{
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: 50px;
 	height: 866px;
 	width: 866px;
 	border: 25px;
@@ -49,3 +23,4 @@
 	margin: 10px;
 	border-style: solid;
 }
+

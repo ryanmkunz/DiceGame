@@ -13,15 +13,13 @@
 // Every time you move (shovel) you have a chance of triggering an event
 //
 // 4-sided: Weather conditions - start of game - sunny: snow melts as you move, 
-// 6-sided: "Whoops! you slipped and fell" -- (re)fill all surrounding tiles with snow
+// 6-sided: "Whoops! you slipped and fell"
 // 8-sided: "Oh no! your shovel broke" -- only after 3rd damage -- Game ends
 // 10-sided: "Oops! you damaged your shovel on some ice" -- probability increases after 12-roll
 // 12-sided: "Oops! you damaged your shovel on some ice" -- only use 12-side for first damage
 // 20-sided: "Ouch! you threw out your back" -- Game ends
 //
 // Yes, I realize I have my xAxis and yAxis backwards. 
-//
-// TODO: find a font online, figure out how to use arrow keys for input
 //
 //-----------------------------------------------
 let driveway = create2DArray(8);
@@ -62,7 +60,6 @@ function checkKeyPress(e)	{
 		movePlayerRight();
 	}
 }
-
 function rollDice(sides)	{
 	let result = Math.floor(Math.random()*sides)+1;
 	return result;
@@ -121,7 +118,7 @@ function movePlayerRight () {
 }
 function getWeather ()	{
 	if (rollDice(4) == 4)	{
-		alert("It's sunny today");
+		alert("It's sunny today; the snow has started to melt");
 		return "sunny";
 	}
 	else {
